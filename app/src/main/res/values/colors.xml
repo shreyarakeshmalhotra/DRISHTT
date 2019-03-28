@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ededed</color>
+    <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryDark">#FFA000</color>
     <color name="backgroundcolour">#fcfcfc</color>
     <color name="lightgray">#ededed</color>
@@ -11,5 +11,5 @@
     <color name="greylight">#fafafa</color>
     <color name="startblue">#09c6df</color>
     <color name="endblue">#0bcce6</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff4081</color>
 </resources>
