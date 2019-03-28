@@ -240,47 +240,6 @@ public class MainActivityFirst extends AppCompatActivity implements View.OnClick
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void initializeTextToSpeech() {
         myTTS=new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
