@@ -17,8 +17,9 @@
             android:layout_width="316dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="hello  New User Heres your tutorial to call a                                                                                                                                                                          ny Number: on to the left we have Reset Button on the right we have the Enter Button in the center We have a BCD Board of Vaues 8,4,2,1 Respectively This Keypad takes One Value at a time Pressing the reset button once Resets Onboard Values Pressing the Enter Button Once Enters a Value Long Press on the Reset Button Resets all previously entered Values and Long Press on Enter Helps you Have This Tutorial Again"
-            tools:background="@android:color/holo_blue_dark" />
+            android:text="Hello first time user heres your Tutorial.\nTo call any Number: \nOn to the left we have Reset Button.\nOn the right we have the Enter Button.\nIn the center We have a BCD Board of Values 8,4,2,1 (top to bottom) Respectively. \nThis Keypad takes One Value at a time.\nPressing the reset button once Resets Onboard Values.\nPressing the Enter Button Once Enters a Value.\nLong Press on the Reset Button Resets all previously entered Values. \nand Long Press on Enter Helps you Have This Tutorial Again"
+
+        tools:background="@android:color/holo_blue_dark" />
 
         <Button
             android:id="@+id/button2"

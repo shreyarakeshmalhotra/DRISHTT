@@ -7,11 +7,12 @@
     tools:context=".Calling_RS">
 
     <RelativeLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5b954"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/textView"
@@ -20,7 +21,9 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="17dp"
-            android:text="Enter BCD Values:" />
+            android:text="Enter BCD Values:"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <ToggleButton
             android:id="@+id/toggleButton8"
@@ -29,6 +32,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="59dp"
+            android:background="?android:attr/colorPressedHighlight"
             android:checked="false"
             android:contentDescription="Eight"
             android:text="ToggleButton"
@@ -43,6 +47,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="167dp"
+            android:background="?android:attr/colorPressedHighlight"
             android:contentDescription="Four"
             android:text="ToggleButton"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -56,6 +61,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="51dp"
+            android:background="?android:attr/colorPressedHighlight"
             android:contentDescription="One"
             android:text="ToggleButton"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -67,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
+            android:background="?android:attr/colorPressedHighlight"
             android:text="Reset" />
 
         <Button
@@ -75,6 +82,7 @@
             android:layout_height="match_parent"
             android:layout_alignBaseline="@+id/toggleButton4"
             android:layout_alignParentEnd="true"
+            android:background="?android:attr/colorPressedHighlight"
             android:text="Enter" />
 
         <ToggleButton
@@ -84,6 +92,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="159dp"
+            android:background="?android:attr/colorPressedHighlight"
             android:contentDescription="Two"
             android:text="ToggleButton"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -97,7 +106,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/textView"
             android:layout_marginTop="83dp"
-            android:text="8" />
+            android:text="8"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -105,7 +116,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/toggleButton4"
             android:layout_alignStart="@+id/textView"
-            android:text="4" />
+            android:text="4"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
 
         <TextView
@@ -114,7 +127,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/toggleButton1"
             android:layout_alignStart="@+id/textView"
-            android:text="1" />
+            android:text="1"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView7"
@@ -122,14 +137,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/toggleButton8"
             android:layout_centerHorizontal="true"
-            android:text="+" />
+            android:text="+"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="+" />
+            android:text="+"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView11"
@@ -138,7 +157,9 @@
             android:layout_below="@+id/toggleButton2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="-159dp"
-            android:text="+" />
+            android:text="+"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -146,7 +167,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/toggleButton2"
             android:layout_alignStart="@+id/textView"
-            android:text="2" />
+            android:text="2"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <RelativeLayout
             android:id="@+id/myLayout"
