@@ -238,6 +238,49 @@ public class MainActivityFirst extends AppCompatActivity implements View.OnClick
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void initializeTextToSpeech() {
         myTTS=new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -334,4 +377,255 @@ public class MainActivityFirst extends AppCompatActivity implements View.OnClick
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* THE FOLLOWING CODE IS FOR CALCULATOR
+    *
+    * package com.example.calc;
+import android.support.v7.app.AppCompatActivity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+
+import java.util.ArrayList;
+import java.util.Locale;
+
+import static android.app.Activity.RESULT_OK;
+
+public class MainActivity extends AppCompatActivity{
+        // IDs of all the numeric buttons
+        private int[] numericButtons = {R.id.btnZero, R.id.btnOne, R.id.btnTwo, R.id.btnThree, R.id.btnFour, R.id.btnFive, R.id.btnSix, R.id.btnSeven, R.id.btnEight, R.id.btnNine};
+        // IDs of all the operator buttons
+        private int[] operatorButtons = {R.id.btnAdd, R.id.btnSubtract, R.id.btnMultiply, R.id.btnDivide};
+        // TextView used to display the output
+        private TextView txtScreen;
+        // Represent whether the lastly pressed key is numeric or not
+        private boolean lastNumeric;
+        // Represent that current state is in error or not
+        private boolean stateError;
+        // If true, do not allow to add another DOT
+        private boolean lastDot;
+        private ImageButton btnSpeak;
+        private final int REQ_CODE_SPEECH_INPUT = 100;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            this.btnSpeak= (ImageButton) btnSpeak.findViewById(btnSpeak);
+            // Find the TextView
+
+            this.txtScreen = (TextView) txtScreen.findViewById( xtScreen);
+            // Find and set OnClickListener to numeric buttons
+            setNumericOnClickListener();
+            // Find and set OnClickListener to operator buttons, equal button and decimal point button
+            setOperatorOnClickListener();
+        }
+
+        private void setContentView(int activity_main) {
+        }
+
+        /**
+         * Find and set OnClickListener to numeric buttons.
+
+    private void setNumericOnClickListener() {
+        // Create a common OnClickListener
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Just append/set the text of clicked button
+                Button button = (Button) v;
+                if (stateError) {
+                    // If current state is Error, replace the error message
+                    txtScreen.setText(button.getText());
+                    stateError = false;
+                } else {
+                    // If not, already there is a valid expression so append to it
+                    txtScreen.append(button.getText());
+                }
+                // Set the flag
+                lastNumeric = true;
+            }
+        };
+        // Assign the listener to all the numeric buttons
+        for (int id : numericButtons) {
+            findViewById(id).setOnClickListener(listener);
+        }
+    }
+
+    /**
+     * Find and set OnClickListener to operator buttons, equal button and decimal point button.
+
+    private void setOperatorOnClickListener() {
+        // Create a common OnClickListener for operators
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // If the current state is Error do not append the operator
+                // If the last input is number only, append the operator
+                if (lastNumeric && !stateError) {
+                    Button button = (Button) v;
+                    txtScreen.append(button.getText());
+                    lastNumeric = false;
+                    lastDot = false;    // Reset the DOT flag
+                }
+            }
+        };
+        // Assign the listener to all the operator buttons
+        for (int id : operatorButtons) {
+            txtScreen.findViewById().setOnClickListener(listener);
+        }
+        // Decimal point
+        txtScreen.findViewById().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (lastNumeric && !stateError && !lastDot) {
+                    txtScreen.append(".");
+                    lastNumeric = false;
+                    lastDot = true;
+                }
+            }
+        });
+        // Clear button
+        Button btnClr = null;
+        // Equal button
+        btnClr.findViewById().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onEqual();
+            }
+        });
+        btnSpeak.findViewById().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (stateError) {
+                    // If current state is Error, replace the error message
+                    txtScreen.setText("Try Again");
+                    stateError = false;
+                } else {
+                    // If not, already there is a valid expression so append to it
+                    promptSpeechInput();
+                }
+                // Set the flag
+                lastNumeric = true;
+
+            }
+        });
+    }
+
+    /**
+     * Logic to calculate the solution.
+
+    private void onEqual() {
+        // If the current state is error, nothing to do.
+        // If the last input is a number only, solution can be found.
+        if (lastNumeric && !stateError) {
+            // Read the expression
+            String txt = txtScreen.getText().toString();
+            // Create an Expression (A class from exp4j library)
+            try {
+                Expression expression=null;
+                try{
+                    expression = new ExpressionBuilder(txt).build();
+                    double result = expression.evaluate();
+                    txtScreen.setText(Double.toString(result));
+                }catch (Exception e){
+                    txtScreen.setText("Error");
+                }
+                lastDot = true; // Result contains a dot
+            } catch (ArithmeticException ex) {                    // Display an error message
+                txtScreen.setText("Error");
+                stateError = true;
+                lastNumeric = false;
+            }
+        }
+    }
+    /**
+     * Showing google speech input dialog
+     *
+    private void promptSpeechInput() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                getString(R.string.speech_prompt));
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(),
+                    getString(R.string.speech_not_supported),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+    /**
+     * Receiving speech input
+     *
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+       //    {
+                if (resultCode == RESULT_OK && null != data) {
+
+          //     <String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
+                    change=change.replace("x","*");
+                    change=change.replace("X","*");
+                    change=change.replace("add","+");
+                    change=change.replace("sub","-");
+                    change=change.replace("to","2");
+                    change=change.replace(" plus ","+");
+                    change=change.replace(" minus ","-");
+                    change=change.replace(" times ","*");
+                    change=change.replace(" into ","*");
+                    change=change.replace(" in2 ","*");
+                    change=change.replace(" multiply by ","*");
+                    change=change.replace(" divide by ","/");
+                    change=change.replace("divide","/");
+                    change=change.replace("equal","=");
+                    change=change.replace("equals","=");
+                    if(change.contains("=")){
+                        change=change.replace("=","");
+                        txtScreen.setText(change);
+                        onEqual();
+                    }else{
+                        txtScreen.setText(change);
+                    }
+                }
+                break;
+            }
+
+        }
+    }*/
 }
+
+
+
+
