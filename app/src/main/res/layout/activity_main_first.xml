@@ -53,7 +53,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/readit"
             android:layout_marginStart="41dp"
-            android:text="Key" />
+            android:text="Keypad" />
 
         <Button
             android:id="@+id/sosbutton"
@@ -61,11 +61,11 @@
             android:layout_height="112dp"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/call_rs"
-            android:layout_marginBottom="191dp"
+            android:layout_marginBottom="209dp"
             android:text="Calculator" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/newsbtn"
             android:layout_width="124dp"
             android:layout_height="112dp"
             android:layout_alignStart="@+id/readit"
@@ -73,14 +73,14 @@
             android:text="News Updates" />
 
         <Button
-            android:id="@+id/button5"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/objDectn"
+            android:layout_width="124dp"
+            android:layout_height="112dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="14dp"
-            android:text="CONFIGURE SOS" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="65dp"
+            android:text="BE MY EYES" />
+
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
