@@ -90,7 +90,7 @@ public class Tutorial extends AppCompatActivity {
             public void run() {
                 startActivity(in);
             }
-        }, 26000);
+        }, 31000);
 
 
         //inv.performClick();
